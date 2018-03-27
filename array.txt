@@ -1,0 +1,33 @@
+<title>HM - Saúde</title>
+<?php 
+header('Content-Type: text/html; charset=UTF-8');
+include('correios.class.php');
+
+if(isset($_GET['cep'])){
+$endereco = Correios::cep($_GET['cep']);
+$arrlength=count($endereco);
+//print_r($endereco);
+
+for($x=0;$x<$arrlength;$x++)
+   {
+		$endereco = $endereco[$x];
+		echo "Endereço Completo: $x <br/>
+			  Logradouro: $endereco[logradouro]<br/>
+			  Bairro    : $endereco[bairro]<br/>
+			  Cidade    : $endereco[cidade]<br/>
+			  UF        : $endereco[uf]<br/>
+			  CEP       : $endereco[cep]<br/><br/>";
+     }	 
+	 
+foreach($endereco as $x=>$x_value)
+   {
+   echo "" . $x . ", " . $x_value;
+   echo "<br>";
+   }
+	  
+die();
+}else{
+        die('<form method="get">Informe o CEP no formato de 8 dígitos (00000000),<br/> sem traços ou pontos e pressione ENTER, para pesquisar: <input type="text" name="cep" size="8" maxlength="8"></form>');
+}
+?>
+

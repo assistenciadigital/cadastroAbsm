@@ -1,0 +1,167 @@
+
+
+http://www.pinceladasdaweb.com.br/
+
+inicio mascaras
+
+jQuery.noConflict();
+(function($) {
+$(function() {
+$('.mask-data').mask('99/99/9999'); //data
+$('.mask-hora').mask('99:99'); //hora
+$('.mask-fone').mask('(999) 999-9999'); //telefone
+$('.mask-rg').mask('99.999.999-9'); //RG
+$('.mask-ag').mask('9999-9'); //Agência
+$('.mask-ag').mask('9.999-9'); //Conta
+});
+})(jQuery);
+
+
+<input type="text" name="fone1" class="mask-fone" />
+<input type="text" name="fone2" class="mask-fone" />
+<input type="text" name="rg" class="mask-rg" />
+<input type="text" name="cpf" class="mask-fpc" />
+
+fim mascaras
+
+
+<script>
+$(document).ready(function() {
+	$('a#print').click(function() {
+		window.print();
+		return false;
+	});
+});
+</script>
+
+
+<a href="#" onclick="window.print(); return false;">Imprimir</a>
+
+
+//trim completo
+String.prototype.trim = function () {
+	return this.replace(/^\s+|\s+$/g,"");
+}
+
+//left trim
+String.prototype.ltrim = function () {
+	return this.replace(/^\s+/,"");
+}
+
+//right trim
+String.prototype.rtrim = function () {
+	return this.replace(/\s+$/,"");
+}
+alert("        TEXTO        ".trim());
+fim
+
+
+
+
+Fazemos uma chamada POST direta aos correios:
+
+http://m.correios.com.br/movel/buscaCepConfirma.do.
+
+
+<option value="<?php print $descricao; ?>(<?php print $uf; ?>)" selected="selected"><?php print $descricao; ?>(<?php print $uf; ?>)</option>  
+
+
+$usuario_atual = $_SESSION['login_usuario'];
+
+$idusuario_atual = $_SESSION['id_usuario'];
+
+$nome_usuario = $_SESSION['nome_usuario'];
+
+$nivel_usuario = $_SESSION['nivel_usuario'];
+
+$idusuario_atual = $_SESSION['id_usuario'];
+$loginusuario_atual = $_SESSION['login_usuario'];
+$nomeusuario_atual = $_SESSION['nome_usuario'];
+$nivelusuario_atual = base64_decode($_SESSION['nivel_usuario']);
+
+  <select name="fuf" id="fuf">
+        <?php 
+  		include("requerido/conexao.php");
+  	 	$sqluf = "select * from uf order by sigla";
+  		$rsuf = mysql_query($sqluf);
+  		while(list($uf, $sigla) = mysql_fetch_row($rsuf)) {		
+  		?>        
+         <option value="MT" selected="selected"><?php print $sigla; ?>        </option>  
+  	    <?php 		
+  		}		
+  		?>    
+   </select>
+
+      <select name="fnaturaluf" id="fnaturaluf">
+          <option value=""></option>
+          <option value="AC">AC</option>
+          <option value="AL">AL</option>
+          <option value="AM">AM</option>
+          <option value="AP">AP</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="DF">DF</option>
+          <option value="ES">ES</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+          <option value="MG">MG</option>
+          <option value="MS">MS</option>
+          <option value="MT">MT</option>
+          <option value="PA">PA</option>
+          <option value="PB">PB</option>
+          <option value="PE">PE</option>
+          <option value="PI">PI</option>
+          <option value="PR">PR</option>
+          <option value="RJ">RJ</option>
+          <option value="RN">RN</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="RS">RS</option>
+          <option value="SC">SC</option>
+          <option value="SE">SE</option>
+          <option value="SP">SP</option>          
+          <option value="TO">TO</option>
+
+
+<select name="fnaturalidade" id="fnaturalidade">
+        <option value=""></option>
+        <?php 
+		$sqlnaturalidade = "select cidade, descricao from cidade order by descricao";
+		$rsnaturalidade = mysql_query($sqlnaturalidade);
+		while(list($cidade, $descricao) = mysql_fetch_row($rsnaturalidade)) {
+		?>
+        <option value="<?php print $cidade; ?>"> <?php print $descricao; ?></option>
+        <?php 
+		}
+		?>
+      </select><span class="style1">* Naturalidade</span>
+
+
+
+<select name="fcidade" id="fcidade">
+          <option value=""></option>
+          <?php 
+		$sqlcidade = "select cidade, descricao from cidade order by descricao";
+		$rscidade = mysql_query($sqlcidade);
+		while(list($cidade, $descricao) = mysql_fetch_row($rscidade)) {
+		?>
+          <option value="<?php print $cidade; ?>"> <?php print $descricao; ?></option>
+          <?php 
+		}
+		?>
+      </select><span class="style1">*</span>
+
+
+
+<select name="fbairro" id="fbairro">
+          <option value=""></option>
+          <?php 
+		$sqlbairro = "select bairro, descricao from bairro order by descricao";
+		$rsbairro = mysql_query($sqlbairro);
+		while(list($bairro, $descricao) = mysql_fetch_row($rsbairro)) {
+		?>
+          <option value="<?php print $bairro; ?>"> <?php print $descricao; ?></option>
+          <?php 
+		}
+		?>
+      </select><span class="style1">*</span>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_multi_band" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0faaa6dd-a316-44a9-b1b2-a947e41caa9b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM multi_band ORDER BY parent, child_1, child_2, child_3]]>
+	</queryString>
+	<field name="parent" class="java.lang.String"/>
+	<field name="child_1" class="java.lang.String"/>
+	<field name="child_2" class="java.lang.String"/>
+	<field name="child_3" class="java.lang.String"/>
+	<field name="desc" class="java.lang.String"/>
+	<field name="total" class="java.lang.Double"/>
+	<group name="PARENT">
+		<groupExpression><![CDATA[$F{parent}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<textField>
+					<reportElement uuid="e69f8f72-9a83-4201-9037-e4e52f313108" x="0" y="10" width="555" height="20"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["PARENT: "+$F{parent}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="34">
+				<textField>
+					<reportElement uuid="2117b7cd-7a27-47ca-9709-bf483982bba6" x="422" y="14" width="133" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TOTAL_PARENT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="cd1759bf-7bbb-4a87-bbac-8760c2b61e04" x="0" y="14" width="422" height="20"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["TOTAL PARENT: "+$F{parent}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="CHILD 1">
+		<groupExpression><![CDATA[$F{child_1}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement uuid="e5d8c38e-d108-4e9f-8896-29649eb05bf3" x="32" y="12" width="523" height="20"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["CHILD 1: "+$F{child_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="34">
+				<textField>
+					<reportElement uuid="69c0dd94-5ebb-40a2-9cfc-4476964a6a04" x="32" y="14" width="390" height="20"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["TOTAL CHILD 1: "+$F{child_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="bbba9797-047a-4ec5-8501-1bcb7c8209a6" x="422" y="14" width="133" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TOTAL_CHILD_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="CHILD 2">
+		<groupExpression><![CDATA[$F{child_2}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<textField>
+					<reportElement uuid="f8912768-7fed-4840-af61-8878966b7279" x="72" y="10" width="483" height="20"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["CHILD 2: "+$F{child_2}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="33">
+				<textField>
+					<reportElement uuid="7247ddc7-a4aa-4d98-bdcb-2141307a19ff" x="72" y="13" width="350" height="20"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["TOTAL CHILD 2: "+$F{child_2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="a075042d-3e1f-4cd0-a059-a5324f563c15" x="422" y="13" width="133" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{TOTAL_CHILD_2}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="70529a1d-d80d-4b4a-8625-5c75dbb1bc5c" x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTOH PENGGUNAAN MULTI BAND]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="29f52b17-5781-4f6d-8589-0d04bd21235f" x="210" y="0" width="212" height="20"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Trebuchet MS" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="56480afb-308b-49d7-921b-eeaab6d238b2" x="422" y="0" width="133" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="Trebuchet MS" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0caa2ba6-dadb-4a4d-b47d-7e838da527a1" x="106" y="0" width="77" height="20"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Trebuchet MS" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{child_3}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9bc259ee-3190-4642-ba5c-1ca6e18728cb" x="0" y="14" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL SELURUHNYA]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6c732ef5-754b-4628-bf7d-63e7b79eb7f6" x="0" y="34" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Trebuchet MS" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

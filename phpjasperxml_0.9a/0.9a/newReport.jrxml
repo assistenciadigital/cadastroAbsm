@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ce01889-bb0b-43bb-a5b6-28b0d665dfc9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT `desc` as description, parent as p1, child_1 as c1,child_2 as c2,child_3 as c3, total  FROM multi_band
+ ORDER BY parent,child_1,child_2,child_3,description ]]>
+	</queryString>
+	<field name="description" class="java.lang.String"/>
+	<field name="p1" class="java.lang.String"/>
+	<field name="c1" class="java.lang.String"/>
+	<field name="c2" class="java.lang.String"/>
+	<field name="c3" class="java.lang.String"/>
+	<field name="total" class="java.lang.Double"/>
+	<variable name="p1_total" class="java.lang.Double" resetType="Group" resetGroup="p1" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="c1_total" class="java.lang.Double" resetType="Group" resetGroup="c1" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="c3_total" class="java.lang.Double" resetType="Group" resetGroup="c3" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="c2_total" class="java.lang.Double" resetType="Group" resetGroup="c2" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="p1_avg" class="java.lang.Double" resetType="Group" resetGroup="p1" calculation="Average">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="c1_avg" class="java.lang.Double" resetType="Group" resetGroup="c1" calculation="Average">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="c3_avg" class="java.lang.Double" resetType="Group" resetGroup="c3" calculation="Average">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="c2_avg" class="java.lang.Double" resetType="Group" resetGroup="c2" calculation="Average">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="averagetotal" class="java.lang.Double" calculation="Average">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<group name="p1">
+		<groupExpression><![CDATA[$F{p1}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<textField>
+					<reportElement uuid="7e68750f-109b-4ae3-b019-b4757f00d2c4" x="18" y="0" width="149" height="20"/>
+					<textElement>
+						<font size="14" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Start Group L1:"+$F{p1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="23">
+				<textField>
+					<reportElement uuid="7e68750f-109b-4ae3-b019-b4757f00d2c4" x="18" y="0" width="161" height="20"/>
+					<textElement>
+						<font size="14" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Group LV1:"+$F{p1}+" Finish"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="11ab5355-a3a3-49bf-bebd-3022110dded2" x="179" y="0" width="100" height="20"/>
+					<textElement>
+						<font size="14" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{p1_avg}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="c1">
+		<groupExpression><![CDATA[$F{c1}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<textField>
+					<reportElement uuid="7b20adbb-9fb2-4505-9c02-0466098a8cec" x="43" y="0" width="153" height="20"/>
+					<textElement>
+						<font isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Start Group L2:"+$F{c1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="26">
+				<textField>
+					<reportElement uuid="7e68750f-109b-4ae3-b019-b4757f00d2c4" x="43" y="0" width="161" height="20"/>
+					<textElement>
+						<font size="10" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Group Lv2:"+$F{c1}+" Finish"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="11ab5355-a3a3-49bf-bebd-3022110dded2" x="211" y="2" width="100" height="20"/>
+					<textElement>
+						<font size="10" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{c1_avg}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="c2">
+		<groupExpression><![CDATA[$F{c2}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<textField>
+					<reportElement uuid="7b20adbb-9fb2-4505-9c02-0466098a8cec" x="68" y="0" width="153" height="20"/>
+					<textElement>
+						<font isBold="true" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Start Group L3:"+$F{c2}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="23">
+				<textField>
+					<reportElement uuid="7e68750f-109b-4ae3-b019-b4757f00d2c4" x="68" y="0" width="161" height="20"/>
+					<textElement>
+						<font size="10" isBold="true" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Group L3:"+$F{c2}+" Finish"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="11ab5355-a3a3-49bf-bebd-3022110dded2" x="229" y="0" width="100" height="20"/>
+					<textElement>
+						<font size="10" isBold="true" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{c2_avg}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="c3">
+		<groupExpression><![CDATA[$F{c3}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement uuid="7b20adbb-9fb2-4505-9c02-0466098a8cec" x="98" y="0" width="153" height="20"/>
+					<textElement>
+						<font isBold="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Start Group L4:"+$F{c3}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24">
+				<textField>
+					<reportElement uuid="11ab5355-a3a3-49bf-bebd-3022110dded2" x="279" y="0" width="100" height="20"/>
+					<textElement>
+						<font size="10" isBold="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{c3_avg}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="7e68750f-109b-4ae3-b019-b4757f00d2c4" x="96" y="0" width="183" height="20"/>
+					<textElement>
+						<font size="10" isBold="false" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Group L4:"+$F{c3}+" Finish"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="70529a1d-d80d-4b4a-8625-5c75dbb1bc5c" x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTOH PENGGUNAAN MULTI BAND]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement uuid="85d08dfc-1404-4c05-879f-d9b2b55abe86" mode="Opaque" x="304" y="0" width="52" height="20" backcolor="#CCFFCC"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="71cb9c16-c7d7-416b-90ff-ab007a11d5b6" mode="Opaque" x="229" y="1" width="75" height="20" backcolor="#CCFFCC"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8d68dc1d-8ac7-4ae4-ae5c-81d43b1964bd" mode="Opaque" x="43" y="0" width="53" height="20" backcolor="#CCFFCC"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{p1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8fa628f8-2029-49f1-bf47-fefb4c944c95" mode="Opaque" x="0" y="0" width="43" height="20" backcolor="#CCFFCC"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7b20adbb-9fb2-4505-9c02-0466098a8cec" mode="Opaque" x="96" y="0" width="42" height="20" backcolor="#CCFFCC"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{c1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c899ed94-89b0-439c-969d-8f8d202cf1f6" mode="Opaque" x="138" y="0" width="53" height="20" backcolor="#CCFFCC"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{c2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c899ed94-89b0-439c-969d-8f8d202cf1f6" mode="Opaque" x="187" y="0" width="42" height="20" backcolor="#CCFFCC"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{c3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="11ab5355-a3a3-49bf-bebd-3022110dded2" x="457" y="1" width="49" height="20"/>
+				<textElement>
+					<font size="10" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{c2_avg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="11ab5355-a3a3-49bf-bebd-3022110dded2" x="404" y="0" width="53" height="20"/>
+				<textElement>
+					<font size="10" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{c1_avg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="11ab5355-a3a3-49bf-bebd-3022110dded2" x="506" y="1" width="49" height="20"/>
+				<textElement>
+					<font size="10" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{c3_avg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="11ab5355-a3a3-49bf-bebd-3022110dded2" x="356" y="1" width="48" height="20"/>
+				<textElement>
+					<font size="10" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{p1_avg}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4068a11b-bc5e-40b9-b029-55f2c4105896" x="438" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cfe17c53-2ab5-41e8-81ff-e5c0de34806e" x="438" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{averagetotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

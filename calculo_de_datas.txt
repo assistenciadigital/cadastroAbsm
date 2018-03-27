@@ -1,0 +1,31 @@
+<?php
+/*
+* Calculando datas no futuro com o PHP a partir de datas definidas
+* http://blog.thiagobelem.net/
+*/
+
+// Pega a data que está salva no banco de dados
+$data = '2009-05-20 06:34:00';
+
+// Calcula a data daqui 3 dias
+$timestamp = strtotime($data . "+3 days");
+ // O valor passado para o strtotime() seria: 2009-05-20 06:34:00 +3 days
+
+// Exibe o resultado
+echo date('d/m/Y H:i', $timestamp); // 23/05/2009 06:34
+
+echo "<br />";
+
+// Calcula uma data daqui 2 dias e 2 mêses
+$timestamp = strtotime($data . "+2 months 2 days");
+// Exibe o resultado
+echo date('d/m/Y H:i', $timestamp); // 22/07/2009 06:34
+
+echo "<br />";
+
+// Calcula uma data daqui 1 hora
+$timestamp = strtotime($data . "+1 hour");
+// Exibe o resultado
+echo date('d/m/Y H:i', $timestamp); // 20/05/2009 07:34
+
+?>
